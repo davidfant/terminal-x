@@ -3,7 +3,7 @@ import ora from 'ora';
 import fetch from 'node-fetch';
 import chalk from 'chalk';
 import readline from 'readline';
-import { spawn } from 'child_process';
+import ShellJS from 'shelljs';
 
 const args = process.argv.slice(2);
 const query = args.join(' ');
@@ -84,10 +84,7 @@ try {
       spinner.stop();
       console.log(chalk.green('$ ') + chalk.bold(suggestion));
 
-      const [base, ...args] = suggestion.split(' ');
-      const child = spawn(base, args);
-      child.stdout.pipe(process.stdout);
-      child.stderr.pipe(process.stderr);
+      ShellJS.exec(suggestion, {async: true});
     } else {
       attempt++;
       if (attempt === 3) break;
