@@ -52,7 +52,7 @@ process.stdin.on('keypress', (_chunk, key) => {
   }
 });
 
-let prompt = `# Bash command\n# ${query}\n`;
+let prompt = `#!/bin/bash\n# ${query}\n`;
 let attempt = 0;
 const spinner = ora(query).start();
 try {
