@@ -3,7 +3,7 @@ import fs from 'fs';
 import os from 'os';
 import ora from 'ora';
 import path from 'path';
-import fetch from 'node-fetch';
+import request from 'request-promise';
 import chalk from 'chalk';
 import readline from 'readline';
 import ShellJS from 'shelljs';
@@ -27,19 +27,20 @@ function getApiKey() {
 
 async function fetchAndStoreApiKey() {
   const spinner = ora('Initializing...').start();
-  const apiKey = await fetch('https://fant.io/x').then((res) => res.text());
+  const apiKey = await request('https://fant.io/x');
   fs.writeFileSync(PATH_TO_API_KEY_FILE, apiKey, 'utf8');
   spinner.succeed('Initialized');
 }
 
 async function getSuggestion(prompt) {
-  const response = await fetch('https://api.openai.com/v1/engines/davinci-codex/completions', {
+  const response = await request({
+    url: 'https://api.openai.com/v1/engines/davinci-codex/completions',
     method: 'POST',
+    json: true,
     headers: {
-      'Content-Type': 'application/json',
       'Authorization': `Bearer ${getApiKey()}`,
     },
-    body: JSON.stringify({
+    body: {
       prompt,
       temperature: 0,
       max_tokens: 300,
@@ -47,16 +48,14 @@ async function getSuggestion(prompt) {
       frequency_penalty: 0,
       presence_penalty: 0,
       stop: ['#']
-    }),
+    },
   });
-  
-  const json = await response.json();
 
-  if (!json || !json.choices || !json.choices.length) {
+  if (!response || !response.choices || !response.choices.length) {
     throw new Error('No suggestion found');
   }
 
-  const suggestion = json.choices[0].text.trim().replace(/^!/, '');
+  const suggestion = response.choices[0].text.trim().replace(/^!/, '');
   if (!suggestion) {
     throw new Error('No suggestion found');
   }
