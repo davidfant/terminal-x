@@ -3,7 +3,7 @@
 
 This is a CLI tool to convert natural language to bash commands. Under the hood, [OpenAI Codex](https://openai.com/blog/openai-codex) is used to create suggestions.
 
-![X Preview](./assets/preview.gif)
+![X Preview](https://github.com/davidfant/terminal-x/blob/master/assets/preview.gif)
 
 ## Installation
 ```bash
