@@ -1,13 +1,13 @@
 
-# X - convert language to terminal comments
+# X - convert natural language to bash commands
 
-This is a CLI tool to convert language to terminal commands. Under the hood, [OpenAI Codex](https://openai.com/blog/openai-codex) is used to create suggestions.
+This is a CLI tool to convert natural language to bash commands. Under the hood, [OpenAI Codex](https://openai.com/blog/openai-codex) is used to create suggestions.
 
 ![X Preview](assets/preview.gif)
 
 ## Installation
 ```bash
-$ sudo yarn add global x
+$ sudo yarn add global terminal-x
 $ x init
 ```
 
