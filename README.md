@@ -1,5 +1,5 @@
 
-# X - convert natural language to bash commands
+# `x` - convert natural language to bash commands
 
 This is a CLI tool to convert natural language to bash commands. Under the hood, [OpenAI Codex](https://openai.com/blog/openai-codex) is used to create suggestions.
 
