@@ -6,14 +6,13 @@ This is a CLI tool to convert language to terminal commands. Under the hood, [Op
 ![X Preview](assets/preview.gif)
 
 ## Installation
-```
-bash
+```bash
 sudo yarn add global x
 x init
 ```
 
-## Usage
-```
+## Examples
+```bash
 x list s3 buckets
 x push current git branch
 x show gcloud accounts
