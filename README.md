@@ -7,14 +7,14 @@ This is a CLI tool to convert language to terminal commands. Under the hood, [Op
 
 ## Installation
 ```bash
-sudo yarn add global x
-x init
+$ sudo yarn add global x
+$ x init
 ```
 
 ## Examples
 ```bash
-x list s3 buckets
-x push current git branch
-x show gcloud accounts
-x change gcloud account to your@gmail.com
+$ x list s3 buckets
+$ x push current git branch
+$ x show gcloud accounts
+$ x change gcloud account to your@gmail.com
 ```
