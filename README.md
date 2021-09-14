@@ -7,7 +7,7 @@ This is a CLI tool to convert natural language to bash commands. Under the hood,
 
 ## Installation
 ```bash
-$ sudo yarn add global terminal-x
+$ sudo yarn global add terminal-x
 $ x init
 ```
 
